@@ -3,7 +3,6 @@ package Project;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.audio.AudioFileIO;
 
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -24,17 +23,24 @@ public class GUI {
     private static final String MUSIC_LIST_FILE = "music_list.txt";
     private MusicItem NowPlaying;
     public music_player player;
+
     //private JButton connectButton;
     public GUI() throws IOException {
         musicListModel = new DefaultListModel<>();
         loadMusicList();
         standby();
         getIp();
-       frame.setState(Frame.ICONIFIED);
+        frame.setState(Frame.ICONIFIED);
 
     }
-   private void getIp(){
-        String ip= server.getIPAddress();
+
+    // dummy method
+    private void dummy() {
+        System.out.println("dummy");
+    }
+
+    private void getIp() {
+        String ip = server.getIPAddress();
         ipField.setText(ip);
     }
 

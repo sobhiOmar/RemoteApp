@@ -3,7 +3,6 @@ package Project;
 //import javax.management.timer.Timer;
 
 import javax.swing.*;
-
 import java.awt.*;
 import java.io.*;
 import java.net.*;
@@ -64,7 +63,7 @@ public class server{
   }
 
   static void FastSleep(){
-      CountdownTimer timer = new CountdownTimer(10, "/FastSleep");
+      CountdownTimer timer = new CountdownTimer(10, "/Sleep");
   }
 
   static void Shutdown(){
@@ -119,8 +118,8 @@ public static String getIPAddress() {
       }
   }
   public static void SetConnectedIp(String ip){
-      ConnectedIp=ip.substring(1,ip.length());
-      System.out.println("changing ip to  : "+ConnectedIp);
+      ConnectedIp = ip.substring(1);
+      System.out.println("changing ip to  : " + ConnectedIp);
       StoreConnectedIp();
   }
   private static void StoreConnectedIp(){
@@ -202,10 +201,10 @@ public static String getIPAddress() {
       }else if (message.length()>5){
           System.out.println("good1");
           if (message.substring(0, 4).equalsIgnoreCase("-p-f")){
-              HandelMusicPlayer(message.substring(4, message.length()));
+              HandelMusicPlayer(message.substring(4));
           }else if (message.length()>10){
               if (message.substring(0, 10).equalsIgnoreCase("brightness") ){
-                  bc.setBrightnessLevel(Integer.parseInt(message.substring(10, message.length())));
+                  bc.setBrightnessLevel(Integer.parseInt(message.substring(10)));
               }else if(IsUrl(message)){
                   System.out.println("opening url "+message);
                   gui.textArea.append("opening url "+message+ "\n");
@@ -222,8 +221,8 @@ public static String getIPAddress() {
 
 
   private static void HandelTimer(String message){
-      String timeANDmetodName = message.substring(2, message.length());
-      String time=timeANDmetodName.substring(0,8);
+      String timeANDmetodName = message.substring(2);
+      String time = timeANDmetodName.substring(0, 8);
       System.out.println("time is "+time);
       String[] timeArray = time.split(":");
       int hours = Integer.parseInt(timeArray[0]);
